@@ -1,6 +1,7 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
 using DynamoStudentManager.Models;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace DynamoStudentManager.Controllers;
 
@@ -19,7 +20,12 @@ public class StudentsController : ControllerBase
     public async Task<IActionResult> GetById(int studentId)
     {
         var student = await _context.LoadAsync<Student>(studentId);
-        if (student == null) return NotFound();
+        if (student == null)
+        {
+            Log.Warning("StudentId {@studentId} not found", studentId);
+            return NotFound();
+        }
+        Log.Information("Get a student {@student}", student);
         return Ok(student);
     }
 
@@ -27,6 +33,7 @@ public class StudentsController : ControllerBase
     public async Task<IActionResult> GetAllStudents()
     {
         var student = await _context.ScanAsync<Student>(default).GetRemainingAsync();
+        Log.Information("Get all students {@student}", student);
         return Ok(student);
     }
 
@@ -34,8 +41,13 @@ public class StudentsController : ControllerBase
     public async Task<IActionResult> CreateStudent(Student studentRequest)
     {
         var student = await _context.LoadAsync<Student>(studentRequest.Id);
-        if (student != null) return BadRequest($"Student with Id {studentRequest.Id} Already Exists");
+        if (student != null)
+        {
+            Log.Warning("Student with Id {@student} already exists", student.Id);
+            return BadRequest($"Student with Id {studentRequest.Id} Already Exists");
+        }
         studentRequest.Created = DateTime.Now;
+        Log.Information("Created a student {@student}", student);
         await _context.SaveAsync(studentRequest);
         return Ok(studentRequest);
     }
@@ -44,7 +56,12 @@ public class StudentsController : ControllerBase
     public async Task<IActionResult> DeleteStudent(int studentId)
     {
         var student = await _context.LoadAsync<Student>(studentId);
-        if (student == null) return NotFound();
+        if (student == null)
+        {
+            Log.Warning("StudentId {@studentId} not found", studentId);
+            return NotFound();
+        }
+        Log.Information("Deleting a student {@student}", student);
         await _context.DeleteAsync(student);
         return NoContent();
     }
@@ -53,8 +70,13 @@ public class StudentsController : ControllerBase
     public async Task<IActionResult> UpdateStudent(Student studentRequest)
     {
         var student = await _context.LoadAsync<Student>(studentRequest.Id);
-        if (student == null) return NotFound();
+        if (student == null)
+        {
+            Log.Warning("StudentId {@studentRequest} not found", studentRequest.Id);
+            return NotFound();
+        }
         studentRequest.Updated = DateTime.Now;
+        Log.Information("Updated a student {@student}", student);
         await _context.SaveAsync(studentRequest);
         return Ok(studentRequest);
     }

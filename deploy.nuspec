@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>DynamoStudentManager</id>
+    <version>$version$</version>
+    <title>DynamoStudentManager</title>
+    <authors>$authors$</authors>
+	<copyright>$copyright$</copyright>
+	<requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+	<projectUrl>$projectUrl$</projectUrl>
+  </metadata>
+  <files>
+    <file src="artifacts\output\**" exclude="**\appsettings.json;**\appsettings.Development.json;" />
+  </files>
+</package>

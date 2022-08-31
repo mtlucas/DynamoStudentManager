@@ -5,12 +5,16 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoStudentManager", "DynamoStudentManager.csproj", "{F8663D1B-BA04-4D78-8188-FC3976DACAA7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.csproj", "{9D8AC348-0554-4B46-AD5A-25EBD9A38687}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D8AC348-0554-4B46-AD5A-25EBD9A38687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D8AC348-0554-4B46-AD5A-25EBD9A38687}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8663D1B-BA04-4D78-8188-FC3976DACAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8663D1B-BA04-4D78-8188-FC3976DACAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8663D1B-BA04-4D78-8188-FC3976DACAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU

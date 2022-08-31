@@ -1,19 +1,57 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+  	<Title>DynamoStudentManager</Title>
+	<Authors>Michael Lucas (mike@lucasnet.org)</Authors>
+	<Company>Lucasnet.org</Company>
+	<Description>Sample WebApi app utilizing local docker instance of DynamoDB and integrated Serilog with Elasticsearch and Seq sinks</Description>
+  	<PackageProjectUrl>https://github.com/mtlucas/DynamoStudentManager</PackageProjectUrl>
+	<Copyright>© 2022</Copyright>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<RepositoryUrl>https://github.com/mtlucas/DynamoStudentManager.git</RepositoryUrl>
     <UserSecretsId>d434d7c9-d0c2-4eb9-a87d-ea820241e812</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>
+    <!--<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>-->
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+    <NuspecFile>deploy.nuspec</NuspecFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+	<TargetFramework>net6.0</TargetFramework>
+	<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+	<DefaultItemExcludes>$(DefaultItemExcludes);bin\**;obj\**;artifacts\**;build\**</DefaultItemExcludes>
+    <Nullable>enable</Nullable>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<AssemblyName>DynamoStudentManager</AssemblyName>
+	<NoWarn>NU5100</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.4.2" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="serilog.aspnetcore" Version="6.0.1" />
+    <PackageReference Include="serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="serilog.Exceptions" Version="8.4.0" />
+    <PackageReference Include="serilog.expressions" Version="3.4.0" />
+    <PackageReference Include="serilog.Settings.AppSettings" Version="2.2.2" />
+    <PackageReference Include="serilog.Settings.Configuration" Version="3.3.0" />
+    <PackageReference Include="serilog.sinks.Debug" Version="2.0.0" />
+    <PackageReference Include="serilog.sinks.Elasticsearch" Version="8.4.1" />
+    <PackageReference Include="serilog.sinks.seq" Version="5.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Content Update="appsettings.*.json" CopyToPublishDirectory="Never" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
