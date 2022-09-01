@@ -10,8 +10,6 @@
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<RepositoryUrl>https://github.com/mtlucas/DynamoStudentManager.git</RepositoryUrl>
     <UserSecretsId>d434d7c9-d0c2-4eb9-a87d-ea820241e812</UserSecretsId>
-    <!--<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>-->
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <IsPackable>true</IsPackable>
     <NuspecFile>deploy.nuspec</NuspecFile>
@@ -25,6 +23,8 @@
 	<ImplicitUsings>enable</ImplicitUsings>
 	<AssemblyName>DynamoStudentManager</AssemblyName>
 	<NoWarn>NU5100</NoWarn>
+	<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	<DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
