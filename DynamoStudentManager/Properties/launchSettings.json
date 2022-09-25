@@ -5,7 +5,10 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AWS_ACCESS_KEY_ID": "local",
+        "AWS_SECRET_ACCESS_KEY": "local",
+        "AWS_REGION": "localhost"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7147;http://localhost:5147"

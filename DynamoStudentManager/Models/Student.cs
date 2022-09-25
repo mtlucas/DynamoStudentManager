@@ -10,7 +10,7 @@ namespace DynamoStudentManager.Models
     public class Student
     {
         [DynamoDBHashKey("id")]
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         [DynamoDBProperty("first_name")]
         public string? FirstName { get; set; }
@@ -22,7 +22,7 @@ namespace DynamoStudentManager.Models
         public string? College { get; set; }
 
         [DynamoDBProperty("class")]
-        public int Class { get; set; }
+        public int? Class { get; set; }
 
         [DynamoDBProperty("state")]
         public string? State { get; set; }

@@ -1,0 +1,8 @@
+
+DynamoStudentManager OpenAPI spec
+=================================
+
+Generated from Swagger
+----------------------
+
+.. openapi:: ../../DynamoStudentManager/OpenAPIs/swagger.json

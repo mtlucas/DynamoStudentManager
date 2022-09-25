@@ -6,6 +6,7 @@ using Serilog.Exceptions;
 using Serilog.Sinks.Elasticsearch;
 using Serilog.Sinks.Seq;
 using System.Reflection;
+using Prometheus;
 
 /* Install Nuget packages:
 
@@ -34,6 +35,7 @@ try
     ConfigureLogging();
     // Add services to the container.
     builder.Host.UseSerilog();
+    builder.Services.AddHealthChecks();
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
@@ -54,7 +56,11 @@ try
     }
     app.UseHttpsRedirection();
     app.UseAuthorization();
+    app.MapHealthChecks("/health");
+    app.UseRouting();
+    app.UseMetricServer();
     app.MapControllers();
+    app.MapMetrics();
     app.Run();
     Log.Information("DynamoStudentManager application started.");
 }

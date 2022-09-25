@@ -1,0 +1,64 @@
+:py:mod:`conf`
+==============
+
+.. py:module:: conf
+
+
+Module Contents
+---------------
+
+.. py:data:: project
+   :annotation: = DynamoStudentManager
+
+   
+
+.. py:data:: copyright
+   :annotation: = 2022, Mike Lucas
+
+   
+
+.. py:data:: author
+   :annotation: = Mike Lucas
+
+   
+
+.. py:data:: release
+   :annotation: = Development
+
+   
+
+.. py:data:: extensions
+   :annotation: = ['sphinx.ext.autodoc', 'autoapi.extension']
+
+   
+
+.. py:data:: templates_path
+   :annotation: = ['_templates']
+
+   
+
+.. py:data:: exclude_patterns
+   :annotation: = []
+
+   
+
+.. py:data:: autoapi_type
+   :annotation: = python
+
+   
+
+.. py:data:: autoapi_dirs
+   :annotation: = ['../../']
+
+   
+
+.. py:data:: html_theme
+   :annotation: = sphinx_rtd_theme
+
+   
+
+.. py:data:: html_static_path
+   :annotation: = ['_static']
+
+   
+
