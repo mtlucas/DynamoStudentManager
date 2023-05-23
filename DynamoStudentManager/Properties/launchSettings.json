@@ -26,6 +26,19 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "publishAllPorts": true
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:7147/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:7147;http://localhost:5147",
+        "AWS_ACCESS_KEY_ID": "local",
+        "AWS_REGION": "localhost",
+        "AWS_SECRET_ACCESS_KEY": "local"
+      },
+      "distributionName": ""
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",
@@ -34,7 +47,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:32639",
-      "sslPort": 0
+      "sslPort": 7147
     }
   }
 }
