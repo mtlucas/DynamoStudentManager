@@ -3,12 +3,12 @@
 # Run:  docker run -it -p 83:80 -p 84:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=84 -e ASPNETCORE_Kestrel__Certificates__Default__Password="Password" -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/wild.lucasnet.int.pfx -e ASPNETCORE_ENVIRONMENT="Development" -v C:\Develop\Certificates\:/https/ mtlucas/dynamostudentmanager:latest
 #       docker run -it -p 83:80 -p 84:443 -e ASPNETCORE_URLS="http://+" -e ASPNETCORE_ENVIRONMENT="Development" mtlucas/dynamostudentmanager:latest
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["DynamoStudentManager.csproj", "."]
 RUN dotnet restore "./DynamoStudentManager.csproj"
