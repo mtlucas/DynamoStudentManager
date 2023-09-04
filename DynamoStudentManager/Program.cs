@@ -34,6 +34,8 @@ using OpenTelemetry;
 
     dotnet add package AWSSDK.DynamoDBv2
     dotnet add package AWSSDK.Extensions.NETCore.Setup
+    dotnet add package prometheus-net
+    dotnet add package prometheus-net.AspNetCore
     dotnet add package serilog.aspnetcore
     dotnet add package serilog.sinks.seq
     dotnet add package serilog.expressions
