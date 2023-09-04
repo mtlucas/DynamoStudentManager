@@ -16,7 +16,7 @@ changeBuildType(RelativeId("Build")) {
 
     requirements {
         add {
-            equals("env.AGENT_NAME", "loadmaster-1")
+            startsWith("env.AGENT_NAME", "loadmaster-1")
         }
     }
 }
