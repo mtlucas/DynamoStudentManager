@@ -13,4 +13,10 @@ changeBuildType(RelativeId("Build")) {
         "Unexpected option value: buildNumberPattern = $buildNumberPattern"
     }
     buildNumberPattern = "%build.counter%"
+
+    requirements {
+        add {
+            equals("env.AGENT_NAME", "loadmaster-1")
+        }
+    }
 }
